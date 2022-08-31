@@ -14,5 +14,6 @@ document.getElementById("editor").src = "http://" + window.location.hostname + "
 <%+footer%>
 EOF
 
+sed -i "s/yacd/Yet Another Clash Dashboard/g" feeds/luci/applications/luci-app-openclash/root/usr/share/openclash/ui/yacd/manifest.webmanifest
 sed -i '94s/80/90/g' feeds/luci/applications/luci-app-openclash/luasrc/controller/openclash.lua
 sed -i '94 i\	entry({"admin", "services", "openclash", "editor"}, template("openclash/editor"),_("Config Editor"), 80).leaf = true' feeds/luci/applications/luci-app-openclash/luasrc/controller/openclash.lua

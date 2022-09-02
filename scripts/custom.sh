@@ -81,11 +81,11 @@ VERNESONG_GAME=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/relea
 DREAMACRO_CORE=$(curl -sL https://api.github.com/repos/Dreamacro/clash/releases | grep /clash-linux-armv8 | awk -F '"' '{print $4}' | sed -n '1p')
 DREAMACRO_TUN=$(curl -sL https://api.github.com/repos/Dreamacro/clash/releases/tags/premium | grep /clash-linux-armv8 | awk -F '"' '{print $4}')
 META_CORE=$(curl -sL https://api.github.com/repos/MetaCubeX/Clash.Meta/releases | grep /Clash.Meta-linux-arm64-v | awk -F '"' '{print $4}' | sed -n '1p')
-wget -qO- $VERNESONG_CORE | tar xOvz > files/etc/openclash/core/clash
-wget -qO- $VERNESONG_TUN | gunzip -c > files/etc/openclash/core/clash_tun
-wget -qO- $VERNESONG_GAME | tar xOvz > files/etc/openclash/core/clash_game
-wget -qO- $DREAMACRO_CORE | gunzip -c > files/etc/openclash/core/clash_dreamacro
-wget -qO- $DREAMACRO_TUN | gunzip -c > files/etc/openclash/core/clash_tun_dreamacro
+wget -qO- $VERNESONG_CORE | tar xOvz > files/etc/openclash/core/clash_vernesong
+wget -qO- $VERNESONG_TUN | gunzip -c > files/etc/openclash/core/clash_tun_vernesong
+wget -qO- $VERNESONG_GAME | tar xOvz > files/etc/openclash/core/clash_game_vernesong
+wget -qO- $DREAMACRO_CORE | gunzip -c > files/etc/openclash/core/clash
+wget -qO- $DREAMACRO_TUN | gunzip -c > files/etc/openclash/core/clash_tun
 wget -qO- $META_CORE | gunzip -c > files/etc/openclash/core/clash_meta
 chmod +x files/etc/openclash/core/clash*
 

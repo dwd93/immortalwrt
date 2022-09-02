@@ -75,14 +75,18 @@ svn co https://github.com/lynxnexy/luci-app-tinyfilemanager/trunk package/luci-a
 
 # Set preset-clash-core
 mkdir -p files/etc/openclash/core
-OPENCLASH_MAIN_URL=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/Clash | grep /clash-linux-armv8 | awk -F '"' '{print $4}')
-CLASH_TUN_URL=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/TUN-Premium | grep /clash-linux-armv8 | awk -F '"' '{print $4}')
-CLASH_GAME_URL=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/TUN | grep /clash-linux-armv8 | awk -F '"' '{print $4}')
-CLASH_META_URL="https://raw.githubusercontent.com/vernesong/OpenClash/master/core-lateset/meta/clash-linux-armv8.tar.gz"
-wget -qO- $OPENCLASH_MAIN_URL | tar xOvz > files/etc/openclash/core/clash
-wget -qO- $CLASH_TUN_URL | gunzip -c > files/etc/openclash/core/clash_tun
-wget -qO- $CLASH_GAME_URL | tar xOvz > files/etc/openclash/core/clash_game
-wget -qO- $CLASH_META_URL | tar xOvz > files/etc/openclash/core/clash_meta
+VERNESONG_CORE=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/Clash | grep /clash-linux-armv8 | awk -F '"' '{print $4}')
+VERNESONG_TUN=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/TUN-Premium | grep /clash-linux-armv8 | awk -F '"' '{print $4}')
+VERNESONG_GAME=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/TUN | grep /clash-linux-armv8 | awk -F '"' '{print $4}')
+DREAMACRO_CORE=$(curl -sL https://api.github.com/repos/Dreamacro/clash/releases | grep /clash-linux-armv8 | awk -F '"' '{print $4}' | sed -n '1p')
+DREAMACRO_TUN=$(curl -sL https://api.github.com/repos/Dreamacro/clash/releases/tags/premium | grep /clash-linux-armv8 | awk -F '"' '{print $4}')
+META_CORE=$(curl -sL https://api.github.com/repos/MetaCubeX/Clash.Meta/releases | grep /Clash.Meta-linux-arm64-v | awk -F '"' '{print $4}' | sed -n '1p')
+wget -qO- $VERNESONG_CORE | tar xOvz > files/etc/openclash/core/clash
+wget -qO- $VERNESONG_TUN | gunzip -c > files/etc/openclash/core/clash_tun
+wget -qO- $VERNESONG_GAME | tar xOvz > files/etc/openclash/core/clash_game
+wget -qO- $DREAMACRO_CORE | gunzip -c > files/etc/openclash/core/clash_dreamacro
+wget -qO- $DREAMACRO_TUN | gunzip -c > files/etc/openclash/core/clash_tun_dreamacro
+wget -qO- $META_CORE | gunzip -c > files/etc/openclash/core/clash_meta
 chmod +x files/etc/openclash/core/clash*
 
 # Set v2ray-rules-dat

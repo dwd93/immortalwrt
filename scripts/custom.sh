@@ -48,21 +48,21 @@ sed -i "s|, \"<p>\&nbsp;<\/p>\"|, \"\"|g" package/luci-app-3ginfo/luci-app-3ginf
 sed -i -e "s|option 'device' ''|option 'device' '192.168.8.1'|g" -e "s|wan|wan1|g" -e "s|pl|en|g" package/luci-app-3ginfo/3ginfo/files-text/etc/config/3ginfo
 
 # Add luci-app-modemband
-svn co https://github.com/4IceG/luci-app-modemband/trunk package/luci-app-modemband
-sed -i -e "s/10/20/g" -e "s/20/30/g" package/luci-app-modemband/luci-app-modemband/root/usr/share/luci/menu.d/luci-app-modemband.json
+# svn co https://github.com/4IceG/luci-app-modemband/trunk package/luci-app-modemband
+# sed -i -e "s/10/20/g" -e "s/20/30/g" package/luci-app-modemband/luci-app-modemband/root/usr/share/luci/menu.d/luci-app-modemband.json
 
 # Add luci-app-atinout-mod
 svn co https://github.com/4IceG/luci-app-atinout-mod/trunk package/luci-app-atinout-mod
 
 # Add luci-app-sms-tool
-svn co https://github.com/4IceG/luci-app-sms-tool/trunk package/luci-app-sms-tool
+# svn co https://github.com/4IceG/luci-app-sms-tool/trunk package/luci-app-sms-tool
 
 # Add luci-app-modeminfo
 # svn co https://github.com/koshev-msk/luci-app-modeminfo/trunk package/luci-app-modeminfo
 
 # Add xmm-modem
-svn co https://github.com/koshev-msk/xmm-modem/trunk package/xmm-modem
-sed -i "s|option enable '1'|option enable '0'|g" package/xmm-modem/root/etc/config/xmm-modem
+# svn co https://github.com/koshev-msk/xmm-modem/trunk package/xmm-modem
+# sed -i "s|option enable '1'|option enable '0'|g" package/xmm-modem/root/etc/config/xmm-modem
 
 # Add luci-app-amlogic
 svn co https://github.com/lynxnexy/luci-app-amlogic/trunk package/luci-app-amlogic

@@ -114,3 +114,10 @@ git clone https://github.com/zsh-users/zsh-completions ./.oh-my-zsh/custom/plugi
 cp $GITHUB_WORKSPACE/amlogic/common/patches/zsh/.zshrc .
 cp $GITHUB_WORKSPACE/amlogic/common/patches/zsh/example.zsh ./.oh-my-zsh/custom/example.zsh
 popd
+
+# Set modemmanager to disable
+mkdir -p feeds/luci/protocols/luci-proto-modemmanager/root/etc/uci-defaults
+cat << EOF > feeds/luci/protocols/luci-proto-modemmanager/root/etc/uci-defaults/25-modemmanager
+[ -f /etc/init.d/modemmanager ] && /etc/init.d/modemmanager disable
+exit 0
+EOF

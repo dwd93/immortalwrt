@@ -101,7 +101,7 @@ chmod +x files/bin/yt-dlp
 
 # Set preset-speedtest
 mkdir -p files/bin
-wget -qO- https://install.speedtest.net/app/cli/ookla-speedtest-1.1.1-linux-aarch64.tgz | tar xOvz > files/bin/speedtest
+wget -qO- https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-aarch64.tgz | tar xOvz > files/bin/speedtest
 chmod +x files/bin/speedtest
 
 # Set oh-my-zsh

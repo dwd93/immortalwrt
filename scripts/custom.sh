@@ -117,7 +117,7 @@ popd
 
 # Set modemmanager to disable
 mkdir -p feeds/luci/protocols/luci-proto-modemmanager/root/etc/uci-defaults
-cat << EOF > feeds/luci/protocols/luci-proto-modemmanager/root/etc/uci-defaults/25-modemmanager
+cat << EOF > feeds/luci/protocols/luci-proto-modemmanager/root/etc/uci-defaults/70-modemmanager
 [ -f /etc/init.d/modemmanager ] && /etc/init.d/modemmanager disable
 exit 0
 EOF

@@ -73,6 +73,13 @@ svn co https://github.com/hubutui/p7zip-lede/trunk package/p7zip
 # Add luci-app-tinyfilemanager
 svn co https://github.com/lynxnexy/luci-app-tinyfilemanager/trunk package/luci-app-tinyfilemanager
 
+# Add luci-app-openclas
+rm -rf feeds/luci/applications/luci-app-openclash
+svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
+pushd package/luci-app-openclash/tools/po2lmo
+make && sudo make install
+popd
+
 # Set preset-clash-core
 mkdir -p files/etc/openclash/core
 VERNESONG_CORE=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/Clash | grep /clash-linux-armv8 | awk -F '"' '{print $4}')

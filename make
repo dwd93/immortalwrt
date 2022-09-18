@@ -478,15 +478,15 @@ EOF
     chmod +x usr/bin/luci-app-atinout >/dev/null 2>&1
 
     # Fix luci-app-modemband
-    chmod +x sbin/set_up_bandz.sh >/dev/null 2>&1
-    chmod +x usr/bin/modemband.sh >/dev/null 2>&1
+    # chmod +x sbin/set_up_bandz.sh >/dev/null 2>&1
+    # chmod +x usr/bin/modemband.sh >/dev/null 2>&1
 
     # Fix luci-app-sms-tool
-    chmod +x etc/init.d/smsled >/dev/null 2>&1
-    chmod +x sbin/cronsync.sh >/dev/null 2>&1
-    chmod +x sbin/set_sms_ports.sh >/dev/null 2>&1
-    chmod +x sbin/smsled-init.sh >/dev/null 2>&1
-    chmod +x sbin/smsled.sh >/dev/null 2>&1
+    # chmod +x etc/init.d/smsled >/dev/null 2>&1
+    # chmod +x sbin/cronsync.sh >/dev/null 2>&1
+    # chmod +x sbin/set_sms_ports.sh >/dev/null 2>&1
+    # chmod +x sbin/smsled-init.sh >/dev/null 2>&1
+    # chmod +x sbin/smsled.sh >/dev/null 2>&1
 
 
     # Add firmware information

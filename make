@@ -472,6 +472,7 @@ EOF
     chmod +x www/cgi-bin/qmisignal.sh >/dev/null 2>&1
     chmod +x usr/share/3ginfo/cgi-bin/*.sh >/dev/null 2>&1
     chmod +x usr/share/3ginfo/scripts/*.sh >/dev/null 2>&1
+    chmod +x etc/init.d/3ginfo >/dev/null 2>&1
 
     # Fix luci-app-atinout
     chmod +x sbin/set_at_port.sh >/dev/null 2>&1

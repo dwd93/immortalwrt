@@ -43,12 +43,10 @@ sed -i "s/\/bin\/ash/\/usr\/bin\/zsh/g" package/base-files/files/etc/passwd
 sed -i -e "s/upload_max_filesize = 2M/upload_max_filesize = 1024M/g" -e "s/post_max_size = 8M/post_max_size = 1024M/g" feeds/packages/lang/php7/files/php.ini
 
 # Add luci-app-3ginfo
-svn co https://github.com/4IceG/luci-app-3ginfo/trunk package/luci-app-3ginfo
-sed -i "s|, \"<p>\&nbsp;<\/p>\"|, \"\"|g" package/luci-app-3ginfo/luci-app-3ginfo/luasrc/model/cbi/modem/3gconfig.lua
-sed -i -e "s|option 'device' ''|option 'device' '192.168.8.1'|g" -e "s|wan|wan1|g" -e "s|pl|en|g" package/luci-app-3ginfo/3ginfo/files-text/etc/config/3ginfo
+svn co https://github.com/lynxnexy/luci-app-3ginfo/trunk package/luci-app-3ginfo
 
 # Add luci-app-atinout-mod
-svn co https://github.com/4IceG/luci-app-atinout-mod/trunk package/luci-app-atinout-mod
+svn co https://github.com/lynxnexy/luci-app-atinout-mod/trunk package/luci-app-atinout-mod
 
 # Add luci-app-amlogic
 svn co https://github.com/lynxnexy/luci-app-amlogic/trunk package/luci-app-amlogic

@@ -189,12 +189,14 @@ echo ""
 
 display "║ Boot Storage	" "$boot_usage" "90" "1" "%" " of $boot_total"
 echo ""
+
+display "║ SYS Storage	" "$root_usage" "90" "1" "%" " of $root_total"
+echo ""
+
 if [ "$data_usage" != "" ]; then
 	display "║ Data Storage	" "$data_usage" "90" "1" "%" " of $data_total"
 	echo ""
 fi
-display "║ SYS Storage	" "$root_usage" "90" "1" "%" " of $root_total"
-echo ""
 
 #if [ "$sda_usage" != "" ]; then
 #	display "║ USB1 Storage	" "$sda_usage" "90" "1" "%" " of $sda_total"

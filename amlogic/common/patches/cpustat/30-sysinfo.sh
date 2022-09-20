@@ -11,8 +11,8 @@ MOTD_DISABLE=""
 SHOW_IP_PATTERN="^[ewr].*|^br.*|^lt.*|^umts.*"
 DATA_STORAGE=/userdisk/data
 MEDIA_STORAGE=/userdisk/snail
-SDA_STORAGE=/mnt/sda1
-SDB_STORAGE=/mnt/sdb1
+#SDA_STORAGE=/mnt/sda1
+#SDB_STORAGE=/mnt/sdb1
 
 [[ -f /etc/default/motd ]] && . /etc/default/motd
 for f in $MOTD_DISABLE; do
@@ -80,17 +80,17 @@ function storage_info() {
 		data_total=$(awk '/\// {print $(NF-4)}' <<<${StorageInfo})
 	fi
 	
-	StorageInfo=$(df -h $SDA_STORAGE 2>/dev/null | grep $SDA_STORAGE)
-	if [[ -n "${StorageInfo}" && ${RootInfo} != *$SDA_STORAGE* ]]; then
-		sda_usage=$(awk '/\// {print $(NF-1)}' <<<${StorageInfo} | sed 's/%//g')
-		sda_total=$(awk '/\// {print $(NF-4)}' <<<${StorageInfo})
-	fi	
+#	StorageInfo=$(df -h $SDA_STORAGE 2>/dev/null | grep $SDA_STORAGE)
+#	if [[ -n "${StorageInfo}" && ${RootInfo} != *$SDA_STORAGE* ]]; then
+#		sda_usage=$(awk '/\// {print $(NF-1)}' <<<${StorageInfo} | sed 's/%//g')
+#		sda_total=$(awk '/\// {print $(NF-4)}' <<<${StorageInfo})
+#	fi	
 	
-	StorageInfo=$(df -h $SDB_STORAGE 2>/dev/null | grep $SDB_STORAGE)
-	if [[ -n "${StorageInfo}" && ${RootInfo} != *$SDB_STORAGE* ]]; then
-		sdb_usage=$(awk '/\// {print $(NF-1)}' <<<${StorageInfo} | sed 's/%//g')
-		sdb_total=$(awk '/\// {print $(NF-4)}' <<<${StorageInfo})
-	fi	
+#	StorageInfo=$(df -h $SDB_STORAGE 2>/dev/null | grep $SDB_STORAGE)
+#	if [[ -n "${StorageInfo}" && ${RootInfo} != *$SDB_STORAGE* ]]; then
+#		sdb_usage=$(awk '/\// {print $(NF-1)}' <<<${StorageInfo} | sed 's/%//g')
+#		sdb_total=$(awk '/\// {print $(NF-4)}' <<<${StorageInfo})
+#	fi	
 
 } # storage_info
 
@@ -187,27 +187,27 @@ printf "║ IP Address	: \x1B[92m%s\x1B[0m" "$ip_address"
 #display "Swap Usage" "$swap_usage" "10" "0" "%" " of $swap_total""Mb"
 echo ""
 
-#display " Boot Storage	" "$boot_usage" "90" "1" "%" " of $boot_total"
-#echo ""
+display "║ Boot Storage	" "$boot_usage" "90" "1" "%" " of $boot_total"
+echo ""
+if [ "$data_usage" != "" ]; then
+	display "║ Data Storage	" "$data_usage" "90" "1" "%" " of $data_total"
+	echo ""
+fi
 display "║ SYS Storage	" "$root_usage" "90" "1" "%" " of $root_total"
 echo ""
 
-if [ "$sda_usage" != "" ]; then
-	display "║ USB1 Storage	" "$sda_usage" "90" "1" "%" " of $sda_total"
-	echo ""
-fi
-
-if [ "$sdb_usage" != "" ]; then
-	display "║ USB2 Storage	" "$sdb_usage" "90" "1" "%" " of $sdb_total"
-	echo ""
-fi
-
-#if [ "$data_usage" != "" ]; then
-#	display " Data Storage" "$data_usage" "90" "1" "%" " of $data_total"
+#if [ "$sda_usage" != "" ]; then
+#	display "║ USB1 Storage	" "$sda_usage" "90" "1" "%" " of $sda_total"
 #	echo ""
 #fi
+
+#if [ "$sdb_usage" != "" ]; then
+#	display "║ USB2 Storage	" "$sdb_usage" "90" "1" "%" " of $sdb_total"
+#	echo ""
+#fi
+
 #if [ "$media_usage" != "" ]; then
-#	display " Data Storage" "$media_usage" "90" "1" "%" " of $media_total"
+#	display "║ Data Storage	" "$media_usage" "90" "1" "%" " of $media_total"
 #	echo ""
 #fi
 #echo ""

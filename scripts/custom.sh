@@ -57,6 +57,15 @@ svn co https://github.com/hubutui/p7zip-lede/trunk package/p7zip
 # Add luci-app-tinyfilemanager
 svn co https://github.com/lynxnexy/luci-app-tinyfilemanager/trunk package/luci-app-tinyfilemanager
 
+# Add luci-app-adguardhome
+svn co https://github.com/rufengsuixing/luci-app-adguardhome/trunk package/luci-app-adguardhome
+
+# Set adguardhome-core
+mkdir -p files/usr/bin/AdGuardHome
+AGH_CORE=$(curl -sL https://api.github.com/repos/AdguardTeam/AdGuardHome/releases | grep /AdGuardHome_linux_arm64 | awk -F '"' '{print $4}' | sed -n '1p')
+wget -qO- $AGH_CORE | tar xOvz > files/usr/bin/AdGuardHome/AdGuardHome
+chmod +x files/usr/bin/AdGuardHome/AdGuardHome
+
 # Add luci-app-openclas
 rm -rf feeds/luci/applications/luci-app-openclash
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
@@ -64,7 +73,7 @@ pushd package/luci-app-openclash/tools/po2lmo
 make && sudo make install
 popd
 
-# Set preset-clash-core
+# Set clash-core
 mkdir -p files/etc/openclash/core
 # VERNESONG_CORE=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/Clash | grep /clash-linux-armv8 | awk -F '"' '{print $4}')
 # VERNESONG_TUN=$(curl -sL https://api.github.com/repos/vernesong/OpenClash/releases/tags/TUN-Premium | grep /clash-linux-armv8 | awk -F '"' '{print $4}')
@@ -90,7 +99,7 @@ mkdir -p files/bin
 curl -sL https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o files/bin/yt-dlp
 chmod +x files/bin/yt-dlp
 
-# Set preset-speedtest
+# Set speedtest
 mkdir -p files/bin
 wget -qO- https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-aarch64.tgz | tar xOvz > files/bin/speedtest
 chmod +x files/bin/speedtest

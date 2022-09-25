@@ -58,15 +58,15 @@ svn co https://github.com/hubutui/p7zip-lede/trunk package/p7zip
 svn co https://github.com/lynxnexy/luci-app-tinyfilemanager/trunk package/luci-app-tinyfilemanager
 
 # Add luci-app-adguardhome
-svn co https://github.com/rufengsuixing/luci-app-adguardhome/trunk package/luci-app-adguardhome
+# svn co https://github.com/rufengsuixing/luci-app-adguardhome/trunk package/luci-app-adguardhome
 
 # Set adguardhome-core
-mkdir -p files/usr/bin/AdGuardHome
-AGH_CORE=$(curl -sL https://api.github.com/repos/AdguardTeam/AdGuardHome/releases | grep /AdGuardHome_linux_arm64 | awk -F '"' '{print $4}' | sed -n '1p')
-wget -qO- $AGH_CORE | tar xOvz > files/usr/bin/AdGuardHome/AdGuardHome
-chmod +x files/usr/bin/AdGuardHome/AdGuardHome
+# mkdir -p files/usr/bin/AdGuardHome
+# AGH_CORE=$(curl -sL https://api.github.com/repos/AdguardTeam/AdGuardHome/releases | grep /AdGuardHome_linux_arm64 | awk -F '"' '{print $4}' | sed -n '1p')
+# wget -qO- $AGH_CORE | tar xOvz > files/usr/bin/AdGuardHome/AdGuardHome
+# chmod +x files/usr/bin/AdGuardHome/AdGuardHome
 
-# Add luci-app-openclas
+# Add luci-app-openclash
 rm -rf feeds/luci/applications/luci-app-openclash
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 pushd package/luci-app-openclash/tools/po2lmo

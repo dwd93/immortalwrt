@@ -419,15 +419,15 @@ EOF
     # Realtek RTL8188FU Wireless LAN Driver
     echo "rtl8188fu" >etc/modules.d/rtl8188fu
     # Realtek RTL8188EU USB Wireless LAN Driver
-    echo "8188eu rtw_power_mgnt=0 rtw_enusbss=0" >etc/modules.d/8188eu
+    echo "8188eu" >etc/modules.d/8188eu
     # Realtek RTL8188GU USB Wireless LAN Driver
-    echo "8188gu rtw_power_mgnt=0 rtw_enusbss=0" >etc/modules.d/8188gu
+    echo "8188gu" >etc/modules.d/8188gu
     # Realtek RTL8192EU USB Wireless LAN Driver
-    echo "8192eu rtw_power_mgnt=0 rtw_enusbss=0" >etc/modules.d/8192eu
+    echo "8192eu" >etc/modules.d/8192eu
     # Realtek RTL8812AU USB Wireless LAN Driver
-    echo "88XXau rtw_power_mgnt=0 rtw_enusbss=0" >etc/modules.d/88XXau
+    echo "88XXau" >etc/modules.d/88XXau
     # Realtek RTL8821CU USB Wireless LAN Driver
-    echo "8821cu rtw_power_mgnt=0 rtw_enusbss=0" >etc/modules.d/8821cu
+    echo "8821cu" >etc/modules.d/8821cu
     # Realtek RTL8822CS Wireless LAN Driver
     echo "88x2cs" >etc/modules.d/88x2cs
     # USB Ralink Wireless LAN Driver

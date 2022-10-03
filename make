@@ -412,12 +412,20 @@ EOF
     # brcmfmac built-in wireless network card Driver
     echo "brcmfmac" >etc/modules.d/brcmfmac
     echo "brcmutil" >etc/modules.d/brcmutil
-    # USB Realtek RTL8188EU Wireless LAN Driver
-    echo "r8188eu" >etc/modules.d/rtl8188eu
     # Realtek RTL8189FS Wireless LAN Driver
     echo "8189fs" >etc/modules.d/8189fs
     # Realtek RTL8188FU Wireless LAN Driver
     echo "rtl8188fu" >etc/modules.d/rtl8188fu
+    # Realtek RTL8188EU USB Wireless LAN Driver
+    echo "8188eu rtw_power_mgnt=0 rtw_enusbss=0" >etc/modules.d/8188eu
+    # Realtek RTL8188GU USB Wireless LAN Driver
+    echo "8188gu rtw_power_mgnt=0 rtw_enusbss=0" >etc/modules.d/8188gu
+    # Realtek RTL8192EU USB Wireless LAN Driver
+    echo "8192eu rtw_power_mgnt=0 rtw_enusbss=0" >etc/modules.d/8192eu
+    # Realtek RTL8812AU USB Wireless LAN Driver
+    echo "88XXau rtw_power_mgnt=0 rtw_enusbss=0" >etc/modules.d/88XXau
+    # Realtek RTL8821CU USB Wireless LAN Driver
+    echo "8821cu rtw_power_mgnt=0 rtw_enusbss=0" >etc/modules.d/8821cu
     # Realtek RTL8822CS Wireless LAN Driver
     echo "88x2cs" >etc/modules.d/88x2cs
     # USB Ralink Wireless LAN Driver
@@ -433,6 +441,9 @@ EOF
     echo "panfrost" >etc/modules.d/panfrost
     # PWM Driver
     echo "pwm_meson" >etc/modules.d/pwm_meson
+    
+    rm -rf etc/modules.d/rtl8xxxu >/dev/null 2>&1
+    rm -rf etc/modules.d/rtl8188eu >/dev/null 2>&1
 
     # Relink the kmod program
     [[ -x "sbin/kmod" ]] && (

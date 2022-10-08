@@ -17,7 +17,7 @@ inputs:
   openwrt_kernel:
     description: "Choose kernel version."
     required: false
-    default: "5.15.50_5.17.15_5.18.7"
+    default: "5.15.72_5.19.14"
   auto_kernel:
     description: "Auto use the latest kernel."
     required: false
